@@ -45,6 +45,7 @@ python generate_real_video.py --style_img ../inputs/styles/myStyles/Arles.jpg --
 `inputs/video/video_0.mp4` and `inputs/video/video_1.mp4`
 
 - Result
+
 `results/video/ReReVST-input-style.jpg-video_0.mp4` and `results/video/ReReVST-input-style.jpg-video_1.mp4`
 
 ---

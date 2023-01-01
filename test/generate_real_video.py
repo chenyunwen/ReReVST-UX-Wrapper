@@ -26,6 +26,7 @@ DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 # Path of the checkpoint (please download and replace the empty file)
 # i.e. your pretrained model (weights) by the authors of the paper
 checkpoint_path = "./Model/style_net-TIP-final.pth"
+# checkpoint_path = "./Model/style_net-epoch-0.pth"
 
 # Device settings, use cuda if available
 
@@ -211,6 +212,8 @@ def process_video(style_img, input_video, interval = 8, write_frames_to_disk = F
 
         # cast as unsigned 8-bit integer (not necessarily needed)
         styled_input_frame = styled_input_frame.astype('uint8')
+
+        styled_input_frame = cv2.cvtColor(styled_input_frame, cv2.COLOR_RGB2BGR)
 
         # add to the output video
         # https://imageio.readthedocs.io/en/stable/examples.html

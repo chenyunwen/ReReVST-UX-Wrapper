@@ -1,5 +1,56 @@
 # Usability wrapper for ReReVST
 
+Reference repository: https://github.com/petteriTeikari/ReReVST-UX-Wrapper
+
+## What we did?
+1. In the original repo, the RGB color of the output video is wrong, we fix this problem.
+2. Calculate execution time.
+
+## How to use?
+
+Environment we used:
+- [Python 3.10.8]
+- [PyTorch 1.13.1]
+
+### Run this code:
+
+We didn't train any model.
+
+#### Testing
+
+- Video style transfer example
+
+**Put the content video you want in the folder `inputs/video`. Since it will do style transfer for all videos you put in this folder.**
+
+```
+cd test/
+python generate_real_video.py --style_img ../inputs/styles/myStyles/Arles.jpg
+```
+
+However, we faced the problem: `CUDA out of memory`.
+So we force the computations to be done with CPU by adding the comment `--force_on_CPU True`. (But the calculation will become very slow...)
+
+```
+python generate_real_video.py --style_img ../inputs/styles/myStyles/Arles.jpg --force_on_CPU True
+```
+
+## Our result
+
+- input styles
+
+<img src ="inputs\styles\myStyles\the-muse.jpg" height="128px" /> <img src ="inputs\styles\myStyles\Under-the-Wave-off-Kanagawa.jpg" height="128px" /> <img src ="inputs\styles\myStyles\starry_night.jpg" height="128px" /> <img src ="inputs\styles\myStyles\Arles.jpg" height="128px" />
+
+### Video style transfer
+- input content video
+`inputs/video/video_0.mp4` and `inputs/video/video_1.mp4`
+
+- Result
+`results/video/ReReVST-input-style.jpg-video_0.mp4` and `results/video/ReReVST-input-style.jpg-video_1.mp4`
+
+---
+
+## The following content comes from the original Repository.
+
 This is an "UX wrapper" to make video style transfer a bit easier to do on your videos if you are not a ML engineer/scientist, and the instructions are really detailed because of that. If you are more into artistic / creative uses of video style transfer, and do not know much of code.
 
 Original project from
